@@ -1,0 +1,35 @@
+.App {
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  background: black;
+  border: 2px solid rgba(255, 0, 0, 0);
+}
+.app_main {
+  margin: auto;
+  font-family: 'PT Mono', monospace;
+  background: linear-gradient(to bottom right,rgb(29, 5, 243),rgb(0, 0, 0));
+  border: 5px solid rgb(216, 216, 216);
+  border-radius: 12px;
+  width: 88%;
+  position: relative;
+  max-width: 1000px;
+  margin-top: 40px;
+  height: 85vh;
+  max-height: 800px;
+}
+
+
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes temp {
+  50% {box-shadow: 3px 3px 45px 20px #00ffffc2;}
+}
+
+@keyframes bgblue {
+  50% {background:rgb(0, 238, 255);}
+}

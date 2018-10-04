@@ -1,0 +1,149 @@
+.slots{
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+.skill-bar{
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid gray;
+    box-shadow: inset 0px 1px 2px 1px rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.171);
+    width: 400px;
+    height: 45px;
+    padding: 1px;
+    margin: -20px 20px 0px 0px;
+}
+.weapon{
+    margin-top: 15px;
+    margin-bottom: 25px;
+    padding: 0px;
+    margin-left: 0px;
+}
+.wpn-title{
+    color: rgb(0, 252, 218);
+    font-size: 1.2em;
+    margin-right:0px;
+    padding: 0px;
+}
+.circles{
+    border: 3px solid rgb(221, 221, 221);
+    border-radius: 100%;
+    width: 37px;
+    height: 37px;
+    margin-top: 1px;
+    margin-bottom: px;
+    background: rgba(87, 87, 87, 0.418);
+}
+.equal{
+    margin: 5px -9px 0px -9px;
+    padding: 0px;
+    color: rgb(221, 221, 221);
+}
+.circle2{
+    border: 2px solid rgb(43, 172, 11);
+    border-radius: 100%;
+    width: 37px;
+    height: 37px;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background:radial-gradient(at 34% 10px,  rgb(208, 255, 210) , rgb(12, 156, 12),  rgb(255, 255, 255));
+    /* box-shadow: 0px 0px 10px 0px #6af06a; */
+    color: white;
+}
+
+.skill_buttons{
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.skill-title{
+    margin-top: 9px;
+    margin-left: 0px;
+    font-size: 1em;
+    text-align: center;
+}
+.return-div{
+    width: 10px;
+}
+.work_button_2{
+    box-shadow: 1px 1px 1px 1px  rgb(32, 32, 32);
+    height: 30px;
+    font-family: 'Maven Pro', sans-serif;
+    border: 1px solid rgb(75, 75, 75);
+    outline: none;
+    color: rgb(255, 255, 255);
+    background: rgba(114, 114, 114, 0.692);
+    font-size: 1.2em;
+    margin: 5px 5px 5px 5px;
+    border-radius: 3px;
+  }
+  .work_button_2:hover{
+    box-shadow: 1px 1px 1px 2px inset  rgb(0, 0, 0);
+    border:1px solid white;
+    border-radius: 4px;
+    background: rgba(0, 195, 255, 0.26);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .exp_bar2{
+      width: 300px;
+      padding: 2px;
+      margin-bottom: 5px;
+      /* margin-top: 80px;
+      margin-left: 320px; */
+  }
+  .exp_title2{
+    position: sticky;
+    font-family: 'Maven Pro', sans-serif;
+    text-align: center;
+    font-size: 1.4em;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 1px 1px rgb(43, 43, 43);
+    border-top: 3px solid rgb(216, 216, 216);
+    border-bottom: 3px solid rgb(216, 216, 216);
+    margin: 0px;
+    padding: 5px;
+  }
+  .work_box2{
+    height: 459px;
+    display: flex;
+    flex-direction: row;
+  }
+  .work_info2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+    overflow: none;
+    border: 3px solid rgb(216, 216, 216);
+    border-radius:3px;
+    width: 70%;
+    min-height: 260px;
+    padding: 15px;
+    margin: 15px;
+  }
+  .desc{
+      width: 260px;
+      max-width: 260px;
+  }
+  .work_form2{
+    display: flex;
+    flex-direction: column;
+    border-left: 3px solid rgb(216, 216, 216);
+    width: 360px;
+    overflow: auto;
+    padding: 0px;
+  }
+  star{
+      color: rgb(8, 197, 8);
+  }
+  .work_form1{
+    margin-right: 12px;
+    margin-bottom: 5px;
+    border-left: 0px solid rgb(216, 216, 216);
+    padding: 0px;
+    width: 300px;
+    overflow: auto;
+  }

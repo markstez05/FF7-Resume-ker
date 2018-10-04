@@ -1,0 +1,74 @@
+.sidebar {
+    box-shadow: 1px 1px 10px 1px inset rgb(0, 0, 0);
+    display: flex;
+    position: absolute;
+    right:0;
+    top: 0;
+    width: 25%;
+    max-width: 210px;
+    margin-top: -25px;
+    margin-right: -35px;
+    background: linear-gradient(to bottom right,rgb(29, 5, 243),rgb(0, 0, 0));
+    border: 5px solid rgb(216, 216, 216);
+    border-radius: 12px;
+    height: 60vh;
+    max-height: 470px;
+  }
+  .topbar {
+    background: linear-gradient(to bottom right,rgb(29, 5, 243),rgb(0, 0, 0));
+    border-bottom: 5px solid rgb(216, 216, 216);
+    height: 70px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .side_button{
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+  .bar_tag {
+    font-family: 'PT Mono', monospace;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 2px 1px rgb(71, 71, 71);
+    background: transparent;
+    font-size: 1.5em;
+    margin: 0px 0px 0px 18px;
+  }
+  .bar_tag:visited{
+    color: white;
+  }
+  .bar_tag:hover{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .bar_top:active{
+    text-decoration: underline;
+    color: black;
+    cursor: pointer;
+  }
+  .top_button{
+    max-width: 10px;
+    width: 240px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .bar_top {
+    font-family: 'IBM Plex Mono', monospace;
+    text-align: right;
+    margin: 20px 5px 0px 5px;
+    text-shadow: 1px 2px 1px rgb(71, 71, 71);
+    font-size: 1.2em;
+    color: white;
+    background-color: transparent;
+    border: none;
+  }
+  .bar_top:hover{
+    text-decoration: underline;
+    cursor: pointer;
+  }

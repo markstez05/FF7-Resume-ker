@@ -1,0 +1,191 @@
+.exp_bar{
+    width: 375px;
+    overflow: auto;
+  }
+  .experience_list{
+    box-sizing: border-box;
+    min-height: 718px;
+    max-height: 718px;
+    color: white;
+  }
+  .icon{
+    height: 20px;
+    width: 20px;
+    margin-left: 20px;
+    box-shadow: 1px 1px 10px 1px rgb(0, 183, 255);
+    background: rgba(247, 247, 247, 0.473);
+  }
+  .exp_title{
+    position: sticky;
+    font-family: 'Maven Pro', sans-serif;
+    text-align: center;
+    font-size: 1.4em;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 1px 1px rgb(43, 43, 43);
+    border: 3px solid rgb(216, 216, 216);
+    border-top: 0px;
+    border-right: 0px;
+    margin: 0px;
+    padding: 3px;
+  }
+  .exp_menu{
+    display: flex;
+    flex-direction: row;
+    max-height: 200px;
+  }
+  .work_history{
+    display: flex;
+    flex-direction: column;
+    color: white;
+  }
+  .work_box{
+    height: 459px;
+    display: flex;
+    flex-direction: row;
+  }
+  .work_title{
+    padding-left: 10px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid rgb(216, 216, 216);
+    border-right: 1px solid rgb(216, 216, 216);
+    border-top: 2px solid rgb(216, 216, 216);
+    border-left: 1px solid rgb(216, 216, 216);
+    border-radius: 2px;
+    height: 50px;
+  }
+  .work_header{
+    margin-top: 13px;
+  }
+  .work_info {
+    overflow: auto;
+    border: 3px solid rgb(216, 216, 216);
+    border-radius:3px;
+    width: 70%;
+    min-height: 260px;
+    padding: 5px;
+    margin: 15px;
+  }
+  .work_form{
+    border-left:3px solid rgb(216, 216, 216);
+    width: 240px;
+    overflow: auto;
+  }
+  .work_input{
+    width: 300px;
+    height: 160px;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* float:left;
+      align-items: center;
+      margin:  0 auto; */
+  }
+  .work_description{
+    font-size: 1.2rem;
+  }
+  .input{
+   display: flex;
+  }
+  .equip_button{
+    border: 1px solid white;
+    margin-left: 7px;
+    margin-top: 9px;
+    height: 50px;
+    border-radius: 3px;
+    width: 50px;
+    background: rgb(153, 153, 153);
+    font-size: .8rem;
+    color: white;
+    padding: 0px;
+  }
+  .equip_button:hover{
+    animation-name: temp;
+    animation-duration: 1.5s;
+    font-weight: bold;
+    text-decoration: underline;
+    border: 3px solid rgb(212, 208, 208);
+    background:rgb(0, 225, 255);
+  }
+  .equip_button_2{
+    border: 1px solid white;
+    margin-left: 7px;
+    margin-top: 9px;
+    height: 50px;
+    border-radius: 3px;
+    width: 225px;
+    background: rgb(153, 153, 153);
+    font-size: .8rem;
+    color: white;
+    padding: 0px;
+  }
+  .equip_button_2:hover{
+    animation-name: temp;
+    animation-duration: 1.5s;
+    font-weight: bold;
+    text-decoration: underline;
+    border: 3px solid rgb(212, 208, 208);
+    background:rgb(0, 225, 255);
+  }
+  .equip_button:active{
+    animation-name: temp;
+    animation-duration: .5s;
+  }
+  textarea{
+    width: 230px;
+    border: 2px solid rgb(216, 216, 216);
+    margin: 2px 0px 2px 0px;
+    height: 58px;
+    background: rgb(36, 36, 37);
+    color: rgb(233, 233, 233);
+  }
+  input{
+    border: 2px solid rgb(216, 216, 216);
+    margin: 2px 0px 2px 0px;
+    float: left;
+    width: 295px;
+    color: rgb(241, 239, 239);
+    height: 20px;
+    background: rgb(36, 36, 37);
+  }
+  .work_button{
+    box-shadow: -1px -1px 1px 1px inset rgb(133, 133, 133);
+    height: 30px;
+    text-align: left;
+    font-family: 'Maven Pro', sans-serif;
+    border: 1px solid white;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background: rgba(63, 63, 63, 0.199);
+    font-size: 1.0em;
+    margin: 5px 0px 5px 5px;
+    width:145px;
+    overflow: hidden;
+    /* border-radius: 3px; */
+  }
+  .work_button:hover{
+    cursor: pointer;
+    border:2px solid white;
+    background: rgba(255, 255, 255, 0.26);
+    box-shadow: 1px 1px 1px 2px inset rgb(0, 0, 0);
+  }
+  .work_button_1{
+    box-shadow: 1px 1px 1px 1px  rgb(32, 32, 32);
+    height: 30px;
+    float: right;
+    text-align: left;
+    font-family: 'Maven Pro', sans-serif;
+    border: 1px solid rgb(75, 75, 75);
+    outline: none;
+    color: rgb(255, 255, 255);
+    background: rgba(114, 114, 114, 0.692);
+    font-size: 1.2em;
+    margin: 5px 5px 5px 5px;
+    border-radius: 3px;
+  }
+  .work_button_1:hover{
+    box-shadow: 1px 1px 1px 2px inset  rgb(0, 0, 0);
+    border:1px solid white;
+    border-radius: 4px;
+    background: rgba(0, 195, 255, 0.26);
+    text-decoration: underline;
+    cursor: pointer;
+  }
