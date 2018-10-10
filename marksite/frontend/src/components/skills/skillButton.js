@@ -4,30 +4,23 @@ import { connect } from 'react-redux';
 
 
 class SkillButton extends Component {
-  constructor(props) {
-    super(props)
+  constructor(props){
+    super(props);
     this.state = {
-        title: "",
-        desc: "",
-        level: "",
-        type: "",
+      skill: []
     }
-}
+  }
+
  
-  onMarkerClick = id => {
-      this.setState({
-        title: this.props.title,
-        desc: "",
-        level: "",
-        type: "",
-      })
-      return console.log("skillid", this.props);
-    ;
-  };
+  onSkillClick = (id) => {
+      return console.log("skillID", this.props)
+};
+
   drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
     console.log("dragging")
 }
+
 allowDrop(ev) {
   ev.preventDefault();
 };
@@ -39,17 +32,21 @@ drop(ev) {
 };
 
   render = () => {
-    const { id, title, index, level, desc, deleteSkill, history } = this.props;
+    const { id, title, deleteSkill } = this.props;
     return (
       <div className="skill_buttons">
       <button
       id={id} 
-
       className="circle2" 
       draggable="true"
       onDragStart={this.drag}
       onDrop={this.drop} 
-      onClick={this.onMarkerClick}
+      onClick={() => {
+        this.onSkillClick(id);
+        this.setState({
+            title: "asdf",
+        })
+    }}
       ></button>
       <h3 className="skill-title">{title}</h3>
        <button onClick={e => { deleteSkill(id); }} className='work_button_2'>Drop</button>

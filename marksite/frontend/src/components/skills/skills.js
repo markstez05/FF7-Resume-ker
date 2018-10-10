@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { getSkill, addSkill } from '../../actions/SkillActions';
+import { getSkill, addSkill, getSkillById } from '../../actions/SkillActions';
 import SkillButton from '../skills/skillButton';
 import "./skills.css";
 import { FaStar } from "react-icons/fa"
@@ -9,6 +9,7 @@ class Skills extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            skill: {},
             title: "",
             desc: "",
             level: "",
@@ -46,15 +47,19 @@ class Skills extends Component {
         ev.preventDefault();
         var data = ev.dataTransfer.getData("text");
         ev.target.appendChild(document.getElementById(data));
+        console.log("dropped");
     };
-    componentDidMount = () => this.props.getSkill();
 
+    componentDidMount = () =>{ 
+    this.props.getSkill();
+    };
 
 
     render() {
-        const { skills, history } = this.props;
-        console.log("SKILLPROPS", this.props.skills)
+        const { skills, history, match } = this.props;
         const { title, desc, level, type } = this.state;
+        const skill = skills[match.params.index];
+        console.log("skill", skill)
         return (
            <div className="experience_list">
            <div className="exp_menu">
@@ -99,7 +104,7 @@ class Skills extends Component {
 
            
             <div className="work_title">
-          <h1 className="work_header">Equips "<span className="level_lable">{title}</span>"  Skill</h1>
+          <h1 className="work_header">Equips "<span className="level_lable">{skills.title}</span>"  Skill</h1>
           </div>
           <div className="work_box2">
           <div className="work_info2">
@@ -185,7 +190,8 @@ class Skills extends Component {
 
 const mSTP = state => {
     return {
-      skills: state.SkillReducer
+      skills: state.SkillReducer,
+      skill: state.SkillReducer
     }
 }
-export default connect(mSTP, { addSkill, getSkill })(Skills);
+export default connect(mSTP, { addSkill, getSkill, getSkillById })(Skills);

@@ -33,7 +33,8 @@ class EditWork extends Component {
   render = () => {
   	const { title, location, date, text } = this.state;
     const { works, match } = this.props;
-    const work = works[match.params.index];
+		const work = works[match.params.index];
+		console.log("work", work)
     return (
 			<div className="experience_list">
 			<div className="exp_menu">
