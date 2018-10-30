@@ -4,7 +4,7 @@ import SkillController from './SkillController';
 import AuthMiddleware from '../Middleware/Auth-Middleware';
 
 const SkillRouter = express.Router();
-// Methods from work controller
+// Methods from skill controller
 const { getSkill, createSkill, updateSkill, deleteSkill, getSkillById } = SkillController;
 // JWT strat for securing user work
 const { jwtStrategy } = AuthMiddleware;

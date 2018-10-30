@@ -1,5 +1,5 @@
 .exp_bar{
-    width: 375px;
+    width: 300px;
     overflow: auto;
   }
   .experience_list{
@@ -29,6 +29,7 @@
     padding: 3px;
   }
   .exp_menu{
+    justify-content: space-between;
     display: flex;
     flex-direction: row;
     max-height: 200px;
@@ -71,6 +72,7 @@
     overflow: auto;
   }
   .work_input{
+    float: right;
     width: 300px;
     height: 160px;
     /* display: flex; */

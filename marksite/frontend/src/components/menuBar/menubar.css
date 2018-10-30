@@ -18,9 +18,12 @@
     background: linear-gradient(to bottom right,rgb(29, 5, 243),rgb(0, 0, 0));
     border-bottom: 5px solid rgb(216, 216, 216);
     height: 70px;
+    width: 100%;
     border-radius: 4px;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
   }
   .side_button{
     width: 240px;
@@ -52,8 +55,8 @@
     cursor: pointer;
   }
   .top_button{
-    max-width: 10px;
-    width: 240px;
+    /* max-width: 10px;
+    width: 240px; */
     display: flex;
     align-items: flex-start;
     justify-content: space-between;

@@ -30,7 +30,6 @@ class TopBar extends Component {
             <button className='bar_top'>References </button>
             <button onClick={this.logout} className='bar_top'>Logout </button> 
             </div>
-
             </div>
         );
     }

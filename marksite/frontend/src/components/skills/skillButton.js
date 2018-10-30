@@ -4,52 +4,27 @@ import { connect } from 'react-redux';
 
 
 class SkillButton extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      skill: []
-    }
-  }
 
- 
-  onSkillClick = (id) => {
-      return console.log("skillID", this.props)
-};
-
-  drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-    console.log("dragging")
-}
-
-allowDrop(ev) {
-  ev.preventDefault();
-};
-
-drop(ev) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
-};
 
   render = () => {
-    const { id, title, deleteSkill } = this.props;
+    const { id, type, title, deleteSkill, onSkillClick, drop, drag } = this.props;
     return (
       <div className="skill_buttons">
       <button
       id={id} 
       className="circle2" 
       draggable="true"
-      onDragStart={this.drag}
-      onDrop={this.drop} 
-      onClick={() => {
-        this.onSkillClick(id);
-        this.setState({
-            title: "asdf",
-        })
-    }}
-      ></button>
+      onDragStart={drag}
+      onDrop={drop} 
+      onClick={onSkillClick}
+      style={{background: type === "Front End" ? 
+      "radial-gradient(at 34% 10px,  rgb(208, 255, 210) , rgb(12, 156, 12),  rgb(255, 255, 255))" : 
+      "radial-gradient(at 34% 10px,  rgb(236, 220, 220) , rgb(156, 12, 12),  rgb(255, 255, 255))",
+        border: type === "Front End" ? "2px solid rgb(43, 172, 11)" : "2px solid rgb(168, 74, 74)" }}
+      >
+      </button>
       <h3 className="skill-title">{title}</h3>
-       <button onClick={e => { deleteSkill(id); }} className='work_button_2'>Drop</button>
+       <button onClick={() => { deleteSkill(id); }} className='work_button_2'>Drop</button>
       </div>
     );
   }
