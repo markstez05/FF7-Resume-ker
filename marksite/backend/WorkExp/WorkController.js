@@ -6,7 +6,6 @@ const WorkController = {
 
     getWork:(req, res) => {
         Work.find({userId: req.user})
-        .sort('date')
         .then(docs => res.status(200).json(docs))
         .catch(err => res.status(500).json({err: 'could not get work...lel'}))
     },

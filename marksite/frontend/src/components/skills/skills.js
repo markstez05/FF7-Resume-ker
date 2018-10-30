@@ -18,6 +18,42 @@ class Skills extends Component {
         }
     }
 
+    levelSort = () => {
+        this.props.skills.sort(function(a, b){
+        if(a.level < b.level) { return -1; }
+        if(a.level > b.level) { return 1; }
+    })
+    this.setState({
+        title: "",
+        desc: "",
+        level: "",
+        type: "",
+    });
+}
+titleSort = () => {
+    this.props.skills.sort(function(a, b){
+    if(a.title < b.title) { return -1; }
+    if(a.title > b.title) { return 1; }
+})
+this.setState({
+    title: "",
+    desc: "",
+    level: "",
+    type: "",
+});
+}
+typeSort = () => {
+    this.props.skills.sort(function(a, b){
+    if(a.type < b.type) { return -1; }
+    if(a.type > b.type) { return 1; }
+})
+this.setState({
+    title: "",
+    desc: "",
+    level: "",
+    type: "",
+});
+}
     onSkillClick = (_id) => {
         this.props.skills.filter(c => {
             if (c._id === _id) {
@@ -134,6 +170,12 @@ class Skills extends Component {
                         </div>
                     </div>
                     <div className="work_form2">
+                   <div>
+                    <button onClick={this.levelSort}>Sort By Level</button>
+                    <button onClick={this.titleSort}>Sort By Title</button>
+                    <button onClick={this.typeSort}>Sort By Type</button>
+                    </div>
+                    
                         <div className="work_form1">
                             {skills.map((skill, i) => {
                                 const { _id, title, desc, level, type } = skill;

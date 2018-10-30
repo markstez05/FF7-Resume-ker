@@ -4,7 +4,6 @@ const SkillController = {
 
     getSkill:(req, res) => {
         Skill.find({userId: req.user})
-        .sort('title')
         .then(docs => res.status(200).json(docs))
         .catch(err => res.status(500).json({err: 'could not get Skills...lel'}))
     },
