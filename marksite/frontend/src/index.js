@@ -6,7 +6,6 @@ import ReduxPromise from 'redux-promise';
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux';
 import Reducers from './reducers';
-import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import App from './App';
 
@@ -20,4 +19,3 @@ render(
 	</Router>,
 	document.getElementById('root')
 );
-registerServiceWorker();
