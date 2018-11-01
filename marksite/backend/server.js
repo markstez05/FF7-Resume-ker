@@ -7,7 +7,7 @@ import SkillRouter  from './Skills/SkillRoutes';
 
 
 const app = express();
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8040;
 
 app.use(express.json());
 app.use(cors());
