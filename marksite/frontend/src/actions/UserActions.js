@@ -1,5 +1,7 @@
 import Axios from 'axios';
-const server = 'http://ff7.herokuapp.com'
+
+// const server = 'https://ff7app.firebaseio.com'
+const server = 'http://localhost:8000'
 export const LOGIN_REGISTER = 'LOGIN_REGISTER';
 
 export const loginRegister = (user, route) => {
