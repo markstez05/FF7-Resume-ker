@@ -11,7 +11,11 @@ class DragDrop extends Component {
       picture: null
     };
   }
-
+  renderDragDrop = e => {
+    e.stopPropagation();
+    this.setState({ dragDrop: !this.state.dragDrop });
+  };
+  
   isAdvancedUpload = () => {
     const div = document.createElement("div");
     return (

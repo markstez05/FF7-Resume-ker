@@ -1,7 +1,21 @@
 import React, {Component} from 'react';
 import "./main.css";
+import DragDrop from "../dragDrop/index.js"
+
 
 class Main extends Component {
+    constructor(props){
+        super();
+        this.state = {
+            dragDrop: true
+        }
+    }
+
+  renderDragDrop = e => {
+    e.stopPropagation();
+    this.setState({ dragDrop: !this.state.dragDrop });
+  };
+
     render () {
         return (
             <div>
@@ -14,6 +28,9 @@ class Main extends Component {
          <span className="level_lable">LV<span className="level">11</span></span>
          <span className="level_lable">HP<span className="level_num">550/550</span></span>
          <span className="level_lable">MP<span className="level_num">110/110</span></span>
+          { this.state.dragDrop ? (<DragDrop 
+         renderDragDrop={this.renderDragDrop}
+          />):null}
         </div>
      </div>
      </div>

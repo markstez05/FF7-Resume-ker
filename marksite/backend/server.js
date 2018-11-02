@@ -22,6 +22,7 @@ app.use(cors());
 app.use('/api/users', UserRouter);
 app.use('/api/work', WorkRouter);
 app.use('/api/skill', SkillRouter);
+app.use('/api/media')
 
 mongoose.connect('mongodb://markstez05:cheese12@ds147003.mlab.com:47003/ff7', { useNewUrlParser: true })
 	.then(() => console.log('connected to MLAB!'))
