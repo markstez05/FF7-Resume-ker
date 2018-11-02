@@ -21,6 +21,5 @@ UserRouter.post('/register', createUser);
 UserRouter.post('/login', authenticate, login);
 UserRouter.get('/logout', logout);
 UserRouter.get('/:id', getUserById)
-UserRouter.get('/media', )
 
 export default UserRouter;
