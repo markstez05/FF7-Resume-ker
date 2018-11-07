@@ -47,27 +47,27 @@ class EditWork extends Component {
 			 <input
 				 type="text"
 				 placeholder={work.title}
-				 value={title}
+				 value={work.title}
 				 onChange={e => this.setState({ title: e.target.value})} />
 			 </div>
 						 <div className='input'>
 			 <input
 				 type="text"
 				 placeholder={work.location}
-				 value={location}
+				 value={work.location}
 				 onChange={e => this.setState({ location: e.target.value})} />
 			 </div>
 						 <div className='input'>
 			 <input
 				 type="text"
 				 placeholder={work.date}
-				 value={date}
+				 value={work.date}
 				 onChange={e => this.setState({ date: e.target.value})} />
 			 </div>
 		 <div className='input'>
 					 <textarea
 				 placeholder={work.text}
-				 value={text}
+				 value={work.text}
 				 onChange={e => this.setState({ text: e.target.value })}></textarea><button className="equip_button">Modify</button>
 				 </div>
 				 <div className='input'>
