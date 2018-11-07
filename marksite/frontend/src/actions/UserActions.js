@@ -1,7 +1,8 @@
 import Axios from 'axios';
 
-// const server = 'https://ff7app.firebaseio.com'
-const server = 'http://localhost:8000'
+const server = "https://api.mlab.com/api/1/databases/ff7/collections/users/?apiKey=HqxRnYbr4bJHTMfFJnNcolDVwCGWE-d7"
+// const server = 'http://localhost:8000'
+
 export const LOGIN_REGISTER = 'LOGIN_REGISTER';
 
 export const loginRegister = (user, route) => {
