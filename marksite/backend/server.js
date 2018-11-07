@@ -5,15 +5,6 @@ import UserRouter from './Users/UserRoutes';
 import WorkRouter from './WorkExp/WorkRoutes';
 import SkillRouter  from './Skills/SkillRoutes';
 
-// var admin = require("firebase-admin");
-
-// var serviceAccount = require("./ff7.json");
-
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount),
-//   databaseURL: "https://ff7app.firebaseio.com"
-// });
-
 const app = express();
 const port = process.env.PORT || 8000;
 

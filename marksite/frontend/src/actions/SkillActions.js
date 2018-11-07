@@ -1,6 +1,7 @@
 import Axios from 'axios';
 
-const server = 'http://localhost:8000'
+// const server = 'http://localhost:8000';
+const server = "https://ff7.herokuapp.com/main"
 
 export const GET_SKILL = 'GET_SKILL';
 export const GET_SKILL_ID = 'GET_SKILL_ID'
@@ -26,20 +27,20 @@ export const addSkill = async skill => {
 }
 
 export const updateSkill = async (skill, id) => {
-    await Axios.put(`${server}skill/${id}`, skill);
+    await Axios.put(`${server}/api/skill/${id}`, skill);
     return dispatch => {
         dispatch(getSkill());
     }
 }
 
 export const deleteSkill = async id => {
-    await Axios.delete(`${server}skill/${id}`)
+    await Axios.delete(`${server}/api/skill/${id}`)
     return dispatch => {
         dispatch(getSkill());
     }
 }
 export const getSkillById = async (skill, id) => {
-    await Axios.get(`${server}skill/${id}`, skill);
+    await Axios.get(`${server}/api/skill/${id}`, skill);
     return dispatch => {
         dispatch(getSkill());
     }
