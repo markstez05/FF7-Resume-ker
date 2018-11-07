@@ -1,7 +1,7 @@
 import Axios from 'axios';
 
 // const server = 'http://localhost:8000';
-const server = "https://ff7.herokuapp.com/main"
+const server = "https://ff7.herokuapp.com"
 
 export const GET_SKILL = 'GET_SKILL';
 export const GET_SKILL_ID = 'GET_SKILL_ID'
