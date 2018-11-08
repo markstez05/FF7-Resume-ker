@@ -105,7 +105,7 @@ class Work extends Component {
                    const { _id, title } = work;
                    return (
                        <WorkButton
-                       key={i}
+                       key={_id}
                        id={_id}
                        index={i}
                        title={title}

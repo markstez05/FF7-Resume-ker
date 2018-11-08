@@ -1,6 +1,7 @@
 import Axios from 'axios';
 
-const server = "https://api.mlab.com/api/1/databases/ff7/collections/works/?apiKey=HqxRnYbr4bJHTMfFJnNcolDVwCGWE-d7"
+// const server = "https://api.mlab.com/api/1/databases/ff7/collections/works/?apiKey=HqxRnYbr4bJHTMfFJnNcolDVwCGWE-d7"
+const server = "http://localhost:8000/api/works"
 
 export const GET_WORK = 'GET_WORK';
 export const GET_WORK_ID = 'GET_WORK_ID'
