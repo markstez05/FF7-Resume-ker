@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-const server = 'http://localhost:8000/api/skills';
+const server = 'http://localhost:8000/api/skill';
 // const server = "https://api.mlab.com/api/1/databases/ff7/collections/skills/?apiKey=HqxRnYbr4bJHTMfFJnNcolDVwCGWE-d7"
 
 export const GET_SKILL = 'GET_SKILL';
