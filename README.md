@@ -13,5 +13,5 @@ cd into `marksite/frontend` & `marksite/backend` and run a
 
 Run `-yarn start` for both `/backend` and `/frontend` files.
 
-BLARGH!
+Happy Hacking!
 
