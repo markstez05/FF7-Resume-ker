@@ -1,8 +1,8 @@
-## FF7-Resume-ker
+# FF7-Resume-ker
 
 A Final Fantasy Themed Resume Maker
 
-# Tech Used
+## Tech Used
 React Redux JWT BCRYPT Mongoose Express
 
 ## Get Started
