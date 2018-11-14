@@ -1,8 +1,11 @@
-# FF7-Resume-ker
+## FF7-Resume-ker
 
 A Final Fantasy Themed Resume Maker
 
-# Get Started
+# Tech Used
+React Redux JWT BCRYPT Mongoose Express
+
+## Get Started
 
 Clone the repo.
 
@@ -12,6 +15,7 @@ cd into `marksite/frontend` & `marksite/backend` and run a
 `-yarn install` for both.
 
 Run `-yarn start` for both `/backend` and `/frontend` files.
+
 
 Happy Hacking!
 
