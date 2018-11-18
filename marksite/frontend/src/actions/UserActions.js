@@ -6,7 +6,7 @@ const server = "https://api.mlab.com/api/1/databases/ff7/collections/users/?apiK
 export const LOGIN_REGISTER = 'LOGIN_REGISTER';
 
 export const loginRegister = (user, route) => {
-    const payload = Axios.post(`${server}/${route}`, user);
+    const payload = Axios.post(`${server}`, user);
     return {
         type: LOGIN_REGISTER,
         payload,
