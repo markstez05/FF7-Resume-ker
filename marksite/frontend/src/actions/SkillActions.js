@@ -33,8 +33,8 @@ export const updateSkill = async (skill, id) => {
     }
 }
 
-export const deleteSkill = async id => {
-    await Axios.delete(`${server}/${id}`)
+export const deleteSkill = async _id => {
+    await Axios.delete(`${server}/${_id}`)
     return dispatch => {
         dispatch(getSkill());
     }
