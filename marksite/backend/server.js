@@ -22,4 +22,4 @@ mongoose.connect(
 	.then(() => console.log('connected to MLAB!'))
 	.catch(err => console.log(err,'error connecting to mongodb'))
 
-app.listen(port, () => console.log( `\n App listening on port ${port}\n`));
+app.listen(process.env.PORT || 8000, () => console.log( `\n App listening on port ${port}\n`));
