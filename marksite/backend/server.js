@@ -16,7 +16,7 @@ app.use('/api/work', WorkRouter);
 app.use('/api/skill', SkillRouter);
 
 mongoose.connect(
-	CONNECTION_URI,
+	'mongodb://markstez05:cheese12@ds147003.mlab.com:47003/ff7',
 	{
  	 useNewUrlParser: true })
 	.then(() => console.log('connected to MLAB!'))
