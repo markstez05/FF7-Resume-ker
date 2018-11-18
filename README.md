@@ -2,7 +2,10 @@
 
 A Final Fantasy Themed Resume Maker
 
-# Get Started
+## Tech Used
+React Redux JWT BCRYPT Mongoose Express
+
+## Get Started
 
 Clone the repo.
 
@@ -13,5 +16,6 @@ cd into `marksite/frontend` & `marksite/backend` and run a
 
 Run `-yarn start` for both `/backend` and `/frontend` files.
 
-BLARGH!
+
+Happy Hacking!
 
