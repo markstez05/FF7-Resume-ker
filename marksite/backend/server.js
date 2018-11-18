@@ -5,6 +5,7 @@ import UserRouter from './Users/UserRoutes';
 import WorkRouter from './WorkExp/WorkRoutes';
 import SkillRouter  from './Skills/SkillRoutes';
 
+const CONNECTION_URI = process.env.MONGODB_URI || 'mongodb://localhost/MarkSite'
 const app = express();
 const port = process.env.PORT || 8000;
 
@@ -14,7 +15,10 @@ app.use('/api/users', UserRouter);
 app.use('/api/work', WorkRouter);
 app.use('/api/skill', SkillRouter);
 
-mongoose.connect('mongodb://markstez05:cheese12@ds147003.mlab.com:47003/ff7', { useNewUrlParser: true })
+mongoose.connect(
+	CONNECTION_URI,
+	{ useMongoClient: true, 
+ 	 useNewUrlParser: true })
 	.then(() => console.log('connected to MLAB!'))
 	.catch(err => console.log(err,'error connecting to mongodb'))
 
