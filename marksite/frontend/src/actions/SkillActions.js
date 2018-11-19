@@ -1,7 +1,8 @@
 import Axios from 'axios';
 
 // const server = 'http://localhost:8000/api/skill';
-const server = "https://api.mlab.com/api/1/databases/ff7/collections/skills/?apiKey=HqxRnYbr4bJHTMfFJnNcolDVwCGWE-d7"
+const server = "https://api.mlab.com/api/1/databases/ff7/collections/skills";
+const api = "?apiKey=HqxRnYbr4bJHTMfFJnNcolDVwCGWE-d7";
 
 export const GET_SKILL = 'GET_SKILL';
 export const GET_SKILL_ID = 'GET_SKILL_ID'
@@ -10,7 +11,7 @@ export const LOGIN = 'LOGIN';
 export const getSkill = () => {
     const token = window.localStorage.getItem("user_skill") || null;
     const config = { headers: { "Authorization": `Bearer ${token}` } };
-    const payload = Axios.get(`${server}`, config);
+    const payload = Axios.get(`${server}${api}`, config);
     return {
         type: GET_SKILL,
         payload,
@@ -20,7 +21,7 @@ export const getSkill = () => {
 export const addSkill = async skill => {
     const token = window.localStorage.getItem("user_skill") || null;
     const config = { headers: { "Authorization": `Bearer ${token}` } };
-    await Axios.post(`${server}`, skill, config)
+    await Axios.post(`${server}${api}`, skill, config)
     return dispatch => {
         dispatch(getSkill());
     }
@@ -33,8 +34,8 @@ export const updateSkill = async (skill, id) => {
     }
 }
 
-export const deleteSkill = async _id => {
-    await Axios.delete(`${server}/${_id}`)
+export const deleteSkill = async id => {
+    await Axios.delete(`${server}/${id}${api}`)
     return dispatch => {
         dispatch(getSkill());
     }

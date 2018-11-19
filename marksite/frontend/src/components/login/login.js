@@ -47,6 +47,7 @@ class Login extends Component {
     render = () => {
         const { username, password, input1Classes, input2Classes, buttonClasses } = this.state;
         const { errorMessage } = this.props;
+        console.log("props", this.props)
         return (
             <div className='login'>
             <div className='login_1'>
@@ -83,7 +84,7 @@ class Login extends Component {
             </div>
             <div className='buttons'>
             <button
-            onClick={() => this.submit('register')}
+            onClick={() => this.submit('register',console.log("dub",this.submit))}
             className={buttonClasses}>New Game</button>
             <button
             onClick={() => this.submit('login')}

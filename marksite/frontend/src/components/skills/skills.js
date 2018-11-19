@@ -123,6 +123,7 @@ class Skills extends Component {
   };
 
   render() {
+    console.log(this.props.skills)
     const { skills } = this.props;
     const { title, desc, level, type, equip } = this.state;
     return (
@@ -296,10 +297,11 @@ class Skills extends Component {
               <div className="work_form1">
                 {skills.map((skill, i) => {
                   const { _id, title, desc, level, type } = skill;
+                  console.log("skill", skill._id.$oid)
                   return (
                     <SkillButton
-                      key={_id}
-                      id={_id}
+                      key={_id.$oid}
+                      id={_id.$oid}
                       index={i}
                       title={title}
                       desc={desc}
