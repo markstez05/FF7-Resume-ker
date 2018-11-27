@@ -9,7 +9,7 @@ class MenuBar extends Component {
     logout = () => {
         Axios.get('http://localhost:8000/api/users/logout')
         .then(res => {
-          window.localStorage.removeItem("user_work");
+          window.localStorage.removeItem("user_work", "user_skill");
           this.props.history.push('/');
         })
       }
@@ -18,7 +18,7 @@ class MenuBar extends Component {
         return (
             <div className="sidebar">
             <div className='side_button'>
-            <Link to='/'> <button className='bar_tag'> Main</button></Link> 
+            <Link to='/main'> <button className='bar_tag'> Main</button></Link> 
             <Link to='/main/skills'><button className='bar_tag'>Skills </button> </Link>
             <button className='bar_tag'> </button> 
             <Link to='/main/exp'> <button className='bar_tag'>Experience</button></Link>

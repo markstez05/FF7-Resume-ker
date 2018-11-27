@@ -3,7 +3,11 @@
   width: 100%;
   box-sizing: border-box;
   background: black;
-  border: 2px solid rgba(255, 0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden;
+  /* border: 2px solid rgba(255, 0, 0, 0); */
 }
 .app_main {
   margin: auto;
@@ -11,12 +15,9 @@
   background: linear-gradient(to bottom right,rgb(29, 5, 243),rgb(0, 0, 0));
   border: 5px solid rgb(216, 216, 216);
   border-radius: 12px;
-  width: 88%;
-  position: relative;
-  max-width: 1000px;
-  margin-top: 40px;
-  height: 85vh;
-  max-height: 800px;
+  position: absolute;
+  width: 1000px;
+  height: 800px;
 }
 
 

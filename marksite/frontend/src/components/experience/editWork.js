@@ -68,9 +68,8 @@ class EditWork extends Component {
 					 <textarea
 				 placeholder={work.text}
 				 value={text}
-				 onChange={e => this.setState({ text: e.target.value })}></textarea><button className="equip_button">Modify</button>
-				 </div>
-				 <div className='input'>
+				 onChange={e => this.setState({ text: e.target.value })}></textarea>
+				 <button className="equip_button">Modify</button>
 				 </div>
 			 </form>
 			</div>
@@ -82,7 +81,8 @@ class EditWork extends Component {
 		 <div className="work_box">
 		 <div className="work_info">
 		 <h4 className="level_lable">COMPANY</h4>
-		 <h2>{work.location}</h2>
+		 <h2
+		 >{work.location}</h2>
 		 <h4 className="level_lable">YEARS WORKED</h4>
 		 <h2>{work.date}</h2>
 		 <h4 className="level_lable">Job Description</h4>

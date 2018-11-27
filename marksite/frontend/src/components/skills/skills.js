@@ -282,16 +282,20 @@ class Skills extends Component {
                   />
                 </h1>
               </div>
-              <div>
+              <div className="skill-type">
                 <h4 className="level_lable">Skill Type</h4>
                 <h2>{type}</h2>
               </div>
+              <div className="desc">
+                <h4 className="level_lable">Description</h4>
+                <h2>{desc}</h2>
+              </div>
             </div>
             <div className="work_form2">
-              <div>
-                <button onClick={this.levelSort}>Sort By Level</button>
-                <button onClick={this.titleSort}>Sort By Title</button>
-                <button onClick={this.typeSort}>Sort By Type</button>
+              <div className="sort-buttons">
+                <button className="sort-button" onClick={this.levelSort}>Sort By Level</button>
+                <button className="sort-button" onClick={this.titleSort}>Sort By Title</button>
+                <button className="sort-button" onClick={this.typeSort}>Sort By Type</button>
               </div>
 
               <div className="work_form1">
@@ -342,9 +346,9 @@ class Skills extends Component {
                         value={type}
                         onChange={e => this.setState({ type: e.target.value })}
                       >
-                        <option value={null} />
                         <option value="Front End">Front End</option>
                         <option value="Back End">Back End</option>
+                        {/* <option value="Other">Other</option> */}
                       </select>
                     </div>
                     <div className="input">

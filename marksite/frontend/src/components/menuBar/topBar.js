@@ -21,7 +21,7 @@ class TopBar extends Component {
         return (
             <div className="topbar">
             <div className='top_button'>
-           <Link to='/'> <button className='bar_top'>Main</button></Link>
+           <Link to='/main'> <button className='bar_top'>Main</button></Link>
            <Link to='/main/skills'><button className='bar_top'>Skills </button></Link>
             <Link to='/main/exp/'> <button className='bar_top'>Experience </button></Link>
             <button className='bar_top'>Education </button>

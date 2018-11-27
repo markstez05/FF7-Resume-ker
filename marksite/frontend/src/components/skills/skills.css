@@ -112,7 +112,7 @@
     padding: 5px;
   }
   .work_box2{
-    height: 459px;
+    max-height: 459px;
     display: flex;
     flex-direction: row;
   }
@@ -121,17 +121,17 @@
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap; 
-    overflow: none;
     border: 3px solid rgb(216, 216, 216);
     border-radius:3px;
     width: 70%;
-    min-height: 260px;
     padding: 15px;
     margin: 15px;
   }
   .desc{
-      width: 260px;
-      max-width: 260px;
+      width: 610px;
+  }
+  .skill-type{
+      width: 200px;
   }
   .work_form2{
     display: flex;
@@ -158,4 +158,29 @@
       width: 99.5%;
       height: 25px;
       border: 2px solid rgb(216, 216, 216);
+  }
+  .sort-buttons{
+      display:flex;
+      justify-content: space-evenly;
+      margin-bottom: 5px;
+  }
+  .sort-button{
+      background-color: rgb(109, 109, 109);
+      border: 3px solid rgb(48, 48, 48);
+      box-shadow: 1px 1px 1px 1px black;
+      color: white;
+      border-radius: 6px;
+      height: 30px;
+      font-size:.86rem;
+      width: 100px;
+  }
+  .sort-button:hover{
+      cursor: pointer;
+      box-shadow: inset 1px 1px 1px 1px rgb(17, 17, 17);
+      border: 3px solid rgb(100, 100, 100);
+      background: rgb(219, 219, 219);
+      color: rgb(10, 10, 10);
+  }
+  .sort-button:focus{
+      outline: 0;
   }
