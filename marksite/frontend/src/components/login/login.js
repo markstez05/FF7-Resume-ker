@@ -19,7 +19,7 @@ class Login extends Component {
     }
 
     UNSAFE_componentWillMount = () => {
-        if(this.storage.getItem("user_work")) {
+        if(this.storage.getItem("user_work","user_skill")) {
             this.props.history.push('/main');
         }
     }
