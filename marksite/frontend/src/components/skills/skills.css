@@ -145,6 +145,7 @@
       color: rgb(8, 197, 8);
   }
   .work_form1{
+      height: 280px;
     margin-right: 12px;
     margin-bottom: 5px;
     border-left: 0px solid rgb(216, 216, 216);
@@ -171,7 +172,6 @@
       color: white;
       border-radius: 6px;
       height: 30px;
-      font-size:.86rem;
       width: 100px;
   }
   .sort-button:hover{
