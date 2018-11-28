@@ -14,7 +14,7 @@ Uses YARN for dependencies
 cd into `marksite/frontend`and run a
 `-yarn install` .
 
-Run `-yarn start` in /frontend` directory.
+Run `-yarn start` in `/frontend` directory.
 
 
 Happy Hacking!
