@@ -301,11 +301,11 @@ class Skills extends Component {
               <div className="work_form1">
                 {skills.map((skill, i) => {
                   const { _id, title, desc, level, type } = skill;
-                  console.log("skill", skill._id.$oid)
+                  console.log("skill", skill._id)
                   return (
                     <SkillButton
-                      key={_id.$oid}
-                      id={_id.$oid}
+                      key={_id}
+                      id={_id}
                       index={i}
                       title={title}
                       desc={desc}
@@ -346,6 +346,7 @@ class Skills extends Component {
                         value={type}
                         onChange={e => this.setState({ type: e.target.value })}
                       >
+                       <option value={null}/>
                         <option value="Front End">Front End</option>
                         <option value="Back End">Back End</option>
                         {/* <option value="Other">Other</option> */}

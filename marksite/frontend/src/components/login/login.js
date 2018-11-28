@@ -84,7 +84,7 @@ class Login extends Component {
             </div>
             <div className='buttons'>
             <button
-            onClick={() => this.submit('register',console.log("dub",this.submit))}
+            onClick={() => this.submit('register')}
             className={buttonClasses}>New Game</button>
             <button
             onClick={() => this.submit('login')}
