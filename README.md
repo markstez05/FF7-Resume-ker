@@ -11,10 +11,10 @@ Clone the repo.
 
 Uses YARN for dependencies
 
-cd into `marksite/frontend` & `marksite/backend` and run a
-`-yarn install` for both.
+cd into `marksite/frontend`and run a
+`-yarn install` .
 
-Run `-yarn start` for both `/backend` and `/frontend` files.
+Run `-yarn start` in /frontend` directory.
 
 
 Happy Hacking!
