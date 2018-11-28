@@ -7,9 +7,9 @@ class Interests extends Component {
         super(props)
         this.state = {
             title: "",
-            desc: "", 
+            desc: ""
         }
-    }
+    };
 
     render() {
         const a = "sadf"
