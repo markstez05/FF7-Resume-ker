@@ -9,8 +9,7 @@ class MenuBar extends Component {
     logout = () => {
         Axios.get('https://ff7backend.herokuapp.com/api/users/logout')
         .then(res => {
-          window.localStorage.removeItem("user_work");
-          window.localStorage.removeItem("user_skill");
+          window.localStorage.removeItem("user_work", "user_skill");
           this.props.history.push('/');
         })
       }
@@ -26,13 +25,11 @@ class MenuBar extends Component {
             <button className='bar_tag'>Education </button> 
             <button className='bar_tag'> </button> 
             <button className='bar_tag'>Volunteer </button> 
-            <button className='bar_tag'>Interests </button> 
+            <Link to='/main/interests'><button className='bar_tag'>Interests</button></Link>
             <button className='bar_tag'>References </button> 
             <button className='bar_tag'> </button> 
             <button onClick={this.logout} className='bar_tag'>Logout </button> 
-
             </div>
-
             </div>
         );
     }

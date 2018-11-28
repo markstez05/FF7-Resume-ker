@@ -10,6 +10,7 @@ import TopBar from './components/menuBar/topBar';
 import Work from './components/experience/work';
 import Login from './components/login/login';
 import Skills from './components/skills/skills';
+import Interests from './components/interests/interests';
 
 
 export default class App extends Component {
@@ -23,6 +24,7 @@ export default class App extends Component {
          <Route exact path ='/main/exp' component={Work}/>
          <Route exact path='/main/exp/:index' component={EditWork} />
          <Route exact path='/main/skills' component={Skills} />
+         <Route exact path='/main/interests' component={Interests} />
          <Route exact path='/main' component={Time}/>
          <Route exact path='/main' component={Location}/>
          <Route exact path='/main' component={MenuBar}/>

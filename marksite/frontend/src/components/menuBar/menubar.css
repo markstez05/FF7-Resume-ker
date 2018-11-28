@@ -45,14 +45,19 @@
   .bar_tag:visited{
     color: white;
   }
-  .bar_tag:hover{
-    text-decoration: underline;
-    cursor: pointer;
-  }
   .bar_top:active{
     text-decoration: underline;
     color: black;
     cursor: pointer;
+  }
+  .bar_tag:hover{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .bar_top:focus{
+    text-decoration: underline;
+    cursor: pointer;
+    color: rgb(0, 247, 255);
   }
   .top_button{
     /* max-width: 10px;

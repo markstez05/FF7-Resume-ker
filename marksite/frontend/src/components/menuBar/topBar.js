@@ -11,8 +11,7 @@ class TopBar extends Component {
   logout = () => {
     Axios.get('https://ff7backend.herokuapp.com/api/users/logout')
     .then(res => {
-      window.localStorage.removeItem("user_work");
-      window.localStorage.removeItem("user_skill");
+      window.localStorage.removeItem("user_work", "user_skill");
       this.props.history.push('/');
     })
   }
@@ -27,7 +26,7 @@ class TopBar extends Component {
             <Link to='/main/exp/'> <button className='bar_top'>Experience </button></Link>
             <button className='bar_top'>Education </button>
             <button className='bar_top'>Volunteer </button>
-            <button className='bar_top'>Interests </button>
+            <Link to='/main/interests'><button className='bar_top'>Interests </button></Link>
             <button className='bar_top'>References </button>
             <button onClick={this.logout} className='bar_top'>Logout </button> 
             </div>

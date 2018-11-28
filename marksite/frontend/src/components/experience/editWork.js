@@ -81,10 +81,10 @@ class EditWork extends Component {
 		 <div className="work_box">
 		 <div className="work_info">
 		 <h4 className="level_lable">COMPANY</h4>
-		 <h2
+		 <h2 className="titles"
 		 >{work.location}</h2>
 		 <h4 className="level_lable">YEARS WORKED</h4>
-		 <h2>{work.date}</h2>
+		 <h2 className="titles">{work.date}</h2>
 		 <h4 className="level_lable">Job Description</h4>
 		 <p className="work_description">
 		 {work.text}

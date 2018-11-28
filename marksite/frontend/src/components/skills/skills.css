@@ -58,7 +58,9 @@
 }
 
 .skill_buttons{
+    padding-left: 0px;
     margin: 5px;
+    width: 275px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -145,11 +147,12 @@
       color: rgb(8, 197, 8);
   }
   .work_form1{
-      height: 280px;
     margin-right: 12px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
+    margin-top: 15px;
     border-left: 0px solid rgb(216, 216, 216);
     padding: 0px;
+    height: 500px;
     width: 300px;
     overflow: auto;
   }
@@ -172,6 +175,7 @@
       color: white;
       border-radius: 6px;
       height: 30px;
+      font-size:.86rem;
       width: 100px;
   }
   .sort-button:hover{

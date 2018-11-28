@@ -92,9 +92,9 @@ class Work extends Component {
           <div className="work_box">
           <div className="work_info">
           <h4 className="level_lable">COMPANY</h4>
-          <h1 className="titles">{location}</h1>
+          <h2 className="titles">{location}</h2>
           <h4 className="level_lable">YEARS WORKED</h4>
-          <h2>{date}</h2>
+          <h2 className="titles">{date}</h2>
           <h4 className="level_lable">Job Description</h4>
           <p className="work_description">
           {text}
