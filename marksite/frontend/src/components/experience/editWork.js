@@ -24,8 +24,8 @@ class EditWork extends Component {
 			location: location === '' ? work.location : location,
 			date: date === '' ? work.date : date,
       text: text === '' ? work.text : text,
-      id: work._id.$oid
-    }, work._id.$oid);
+      id: work._id
+    }, work._id);
   	this.props.history.push('/main/exp');
 	}
 

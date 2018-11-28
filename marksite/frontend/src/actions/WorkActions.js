@@ -33,14 +33,6 @@ export const updateWork = async (work, id) => {
     }
 }
 
-export const markComplete = (work, id) => {
-    work.completed =!work.completed;
-    Axios.put(`${server}/${id}`, work)
-    return dispatch => {
-        dispatch(getWork());
-    }
-}
-
 export const deleteWork = async id => {
     await Axios.delete(`${server}/${id}`);
     return dispatch => {

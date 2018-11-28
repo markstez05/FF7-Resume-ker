@@ -2,7 +2,6 @@ import Axios from 'axios';
 
 // const server = 'http://localhost:8000/api/skill';
 const server = "https://ff7backend.herokuapp.com/api/skill";
-const api = "?apiKey=HqxRnYbr4bJHTMfFJnNcolDVwCGWE-d7";
 
 export const GET_SKILL = 'GET_SKILL';
 export const GET_SKILL_ID = 'GET_SKILL_ID'

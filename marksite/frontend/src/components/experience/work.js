@@ -103,11 +103,11 @@ class Work extends Component {
           <div className="work_form">
           {      works.map((work, i) => {
                    const { _id, title } = work;
-                   console.log("work", work._id.$oid)
+                   console.log("work", work._id)
                    return (
                        <WorkButton
-                       key={_id.$oid}
-                       id={_id.$oid}
+                       key={_id}
+                       id={_id}
                        index={i}
                        title={title}
                        history={history} />
