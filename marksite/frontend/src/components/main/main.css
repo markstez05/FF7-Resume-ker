@@ -1,9 +1,25 @@
-.main{
+.main-container{
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+}.main{
     display: flex;
     flex-direction: row;
     width: 77%;
     margin: 25px 0px 0px 50px ;
     margin-left: 25px;
+  }
+  .main1{
+    display: flex;
+    flex-direction: row;
+    width: 77%;
+    min-height: 152px;
+    margin: 25px 0px 0px 25px;
+  }
+  .idkyet{
+    display:flex;
+    flex-direction: column;
+    height: 615px;
   }
   .name{
     font-family: 'PT Mono', monospace;

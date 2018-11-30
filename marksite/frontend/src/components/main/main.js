@@ -1,4 +1,8 @@
 import React, {Component} from 'react';
+import {  getUsers } from '../../actions/UserActions';
+import { connect } from 'react-redux';
+import AllChar from './allChar';
+
 import "./main.css";
 import DragDrop from "../dragDrop/index.js"
 
@@ -7,9 +11,16 @@ class Main extends Component {
     constructor(props){
         super();
         this.state = {
+            name: "",
+            age: "",
+            location: "",
             dragDrop: true
         }
     }
+
+    componentDidMount = () => {
+        this.props.getUsers();
+      };
 
   renderDragDrop = e => {
     e.stopPropagation();
@@ -17,8 +28,10 @@ class Main extends Component {
   };
 
     render () {
+        console.log("users", this.props.users)
+        const { users } = this.props;
         return (
-            <div>
+            <div className="main-container">
      <div className='main'>
         <div>
         <img className='char_pic' id="pic" src="https://pbs.twimg.com/profile_images/1267009503/ff7-cid2_400x400.jpg"  alt="Generic placeholder" />
@@ -33,9 +46,29 @@ class Main extends Component {
           />):null} */}
         </div>
      </div>
+     <div className="idkyet">
+          {      users.map((work, i) => {
+                   const { _id, username } = work;
+                   console.log("work", work._id)
+                   return (
+                       <AllChar
+                       key={_id}
+                       id={_id}
+                       index={i}
+                       username={username}/>
+                   )
+               })
+           }
+            </div>
      </div>
         )
     }
 }
 
-export default Main;
+const mSTP = state => {
+    return {
+        users: state.UsersReducer
+    }
+}
+
+export default connect(mSTP, { getUsers })(Main);

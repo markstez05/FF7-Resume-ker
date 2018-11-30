@@ -17,13 +17,12 @@ class Interests extends Component {
             <div className="interests-div">
             <div className="desc-div">
             <h3>Description:{this.state.desc}</h3>
-            {/* <h3 className="interest-title">Interests</h3> */}
             </div>
                 <div className="interest-container">
                 <div className="left-div">
                 <Main />
                 <div className="exp_bar">
-	 <p className="exp_title">Experience</p>
+	 <p className="exp_title">Interests</p>
                 <form onSubmit={a}>
 		 <div className='input'>
 			 <input

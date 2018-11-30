@@ -4,7 +4,6 @@ const server = "https://ff7backend.herokuapp.com/api/work"
 // const server = "http://localhost:8000/api/work"
 
 export const GET_WORK = 'GET_WORK';
-export const GET_WORK_ID = 'GET_WORK_ID'
 
 
 export const getWork = () => {

@@ -161,6 +161,8 @@
     margin: 5px 0px 5px 5px;
     width:145px;
     overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     /* border-radius: 3px; */
   }
   .work_button:hover{
