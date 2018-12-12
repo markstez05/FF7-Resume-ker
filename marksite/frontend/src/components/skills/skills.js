@@ -125,7 +125,7 @@ class Skills extends Component {
   render() {
     console.log(this.props.skills)
     const { skills } = this.props;
-    const { title, desc, level, type, equip } = this.state;
+    const { title, desc, level, type } = this.state;
     return (
       <div className="experience_list">
         <div className="exp_menu">

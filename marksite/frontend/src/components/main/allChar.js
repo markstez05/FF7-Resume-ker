@@ -9,7 +9,10 @@ class AllChar extends Component {
   render = () => {
   	const { id, username, index } = this.props;
     return (
-        <div id={id}className='main1'>
+        <div 
+        id={id}
+        key={id}
+        className='main1'>
         <div>
         <img className='char_pic' id="pic" src="https://pbs.twimg.com/profile_images/1267009503/ff7-cid2_400x400.jpg"  alt="Generic placeholder" />
         </div>

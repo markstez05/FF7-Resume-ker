@@ -19,7 +19,7 @@ class Login extends Component {
     }
 
     UNSAFE_componentWillMount = () => {
-        if(this.storage.getItem("user_work","user_skill")) {
+        if(this.storage.getItem("user_work","user_skill","user")) {
             this.props.history.push('/main');
         }
     }
@@ -31,7 +31,10 @@ class Login extends Component {
             .then(res => {
                 console.log(res);
                 const { status } = res.payload;
+                console.log("status", status)
                 if(status === 200 || status === 201) {
+                    const string = JSON.stringify(res.payload.data.user);
+                    window.localStorage.setItem("user", string);
                     this.setState({
                         username: '',
                         password: '',

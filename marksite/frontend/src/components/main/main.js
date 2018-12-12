@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import {  getUsers } from '../../actions/UserActions';
+import {  getUsers, getUserById, updateUser } from '../../actions/UserActions';
 import { connect } from 'react-redux';
 import AllChar from './allChar';
 
 import "./main.css";
 import DragDrop from "../dragDrop/index.js"
+import update from 'immutability-helper';
 
 
 class Main extends Component {
@@ -14,13 +15,37 @@ class Main extends Component {
             name: "",
             age: "",
             location: "",
-            dragDrop: true
+            picture: "",
+            dragDrop: false,
+            id: "",
         }
     }
 
+    submitFile = file => {
+        updateUser({ picture: file }, this.state.id);
+        file = URL.createObjectURL(file);
+        this.setState({ picture: file, dragDrop: false })
+      };
+    renderDragDrop = e => {
+        e.stopPropagation();
+        this.setState({ dragDrop: !this.state.dragDrop });
+      };
+    
     componentDidMount = () => {
         this.props.getUsers();
+        let user = window.localStorage.getItem("user");
+        user = JSON.parse(user);
+        this.setState({
+            name: user.username,
+            age: user.age,
+            location: user.location,
+            picture: user.picture,
+            id: user._id
+        })
+        console.log("CDM",user)
+        
       };
+ 
 
   renderDragDrop = e => {
     e.stopPropagation();
@@ -28,28 +53,51 @@ class Main extends Component {
   };
 
     render () {
-        console.log("users", this.props.users)
+        console.log("STATE",this.state)
+        console.log("USER", window.localStorage.getItem("user"));
         const { users } = this.props;
+        let modal = null;
+        if (this.state.dragDrop) {
+          modal = (
+            <DragDrop
+              renderDragDrop={this.renderDragDrop}
+              submitFile={this.submitFile}
+            />
+          );
+        }
+      let  hp = () => {
+            let num = this.state.age * 50;
+            return num;
+          }
+          let  mp = () => {
+            let num = this.state.age * 10;
+            return num;
+          }
         return (
             <div className="main-container">
      <div className='main'>
+     {modal}
         <div>
-        <img className='char_pic' id="pic" src="https://pbs.twimg.com/profile_images/1267009503/ff7-cid2_400x400.jpg"  alt="Generic placeholder" />
+        <img className='char_pic'
+         id="pic" 
+         src= {this.state.picture}  
+         alt="Generic placeholder" 
+         onClick={e => {
+            this.renderDragDrop(e);
+          }}
+         />
         </div>
         <div className="stats" >
-        <h1 className="name">Mark Stesney</h1>
-         <span className="level_lable">LV<span className="level">11</span></span>
-         <span className="level_lable">HP<span className="level_num">550/550</span></span>
-         <span className="level_lable">MP<span className="level_num">110/110</span></span>
-          {/* { this.state.dragDrop ? (<DragDrop 
-         renderDragDrop={this.renderDragDrop}
-          />):null} */}
+        <h1 className="name">{this.state.name}</h1>
+         <span className="level_lable">LV<span className="level">{this.state.age}</span></span>
+         <span className="level_lable">HP<span className="level_num">{hp()}/{hp()}</span></span>
+         <span className="level_lable">MP<span className="level_num">{mp()}/{mp()}</span></span>
         </div>
      </div>
      <div className="idkyet">
-          {      users.map((work, i) => {
-                   const { _id, username } = work;
-                   console.log("work", work._id)
+          {      users.map((user, i) => {
+                   const { _id, username } = user;
+                   console.log("users", user._id)
                    return (
                        <AllChar
                        key={_id}
@@ -71,4 +119,4 @@ const mSTP = state => {
     }
 }
 
-export default connect(mSTP, { getUsers })(Main);
+export default connect(mSTP, { getUsers, getUserById, updateUser })(Main);
