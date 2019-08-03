@@ -11,6 +11,7 @@ import Work from './components/experience/work';
 import Login from './components/login/login';
 import Skills from './components/skills/skills';
 import Interests from './components/interests/interests';
+import CharEdit from './components/main/charEdit';
 
 
 export default class App extends Component {
@@ -21,6 +22,7 @@ export default class App extends Component {
         <div className="App">
          <div className="app_main">
          <Route path ='/main/:anything' component={TopBar}/>
+         <Route exact path ='/main/charedit' component={CharEdit}/>
          <Route exact path ='/main/exp' component={Work}/>
          <Route exact path='/main/exp/:index' component={EditWork} />
          <Route exact path='/main/skills' component={Skills} />

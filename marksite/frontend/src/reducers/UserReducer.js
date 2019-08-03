@@ -16,6 +16,7 @@ export default async (UserState = { errorMessage: 'cant' }, action) => {
             if(token) {
                 localStorage.setItem("user_work", token);
                 localStorage.setItem("user_skill", token);
+                localStorage.setItem("user_info", token)
                 ns = update(UserState, {errorMessage: {$set: 'Successfully logged In'}});
 
             } else {

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {  getUsers, getUserById, updateUser } from '../../actions/UserActions';
+import {  getUsers, getUserById, updateUser, getUser } from '../../actions/UserActions';
 import { connect } from 'react-redux';
 import AllChar from './allChar';
 
@@ -32,18 +32,17 @@ class Main extends Component {
       };
     
     componentDidMount = () => {
+        this.props.getUser();
         this.props.getUsers();
         let user = window.localStorage.getItem("user");
         user = JSON.parse(user);
         this.setState({
-            name: user.username,
+            name: user.name,
             age: user.age,
             location: user.location,
             picture: user.picture,
             id: user._id
-        })
-        console.log("CDM",user)
-        
+        })        
       };
  
 
@@ -55,7 +54,8 @@ class Main extends Component {
     render () {
         console.log("STATE",this.state)
         console.log("USER", window.localStorage.getItem("user"));
-        const { users } = this.props;
+        const { users, user } = this.props;
+        console.log("user-info", this.props.user)
         let modal = null;
         if (this.state.dragDrop) {
           modal = (
@@ -115,8 +115,9 @@ class Main extends Component {
 
 const mSTP = state => {
     return {
-        users: state.UsersReducer
+        users: state.UsersReducer,
+        user: state.UsersReducer
     }
 }
 
-export default connect(mSTP, { getUsers, getUserById, updateUser })(Main);
+export default connect(mSTP, { getUsers, getUserById, updateUser, getUser })(Main);

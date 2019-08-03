@@ -37,3 +37,12 @@ export const getUsers = () => {
         payload,
     };
 }
+export const getUser = () => {
+    const token = window.localStorage.getItem("user_info") || null;
+    const config = { headers: { "Authorization": `Bearer ${token}` } };
+    const payload = Axios.get(`${server}`, config);
+    return {
+        type: GET_USERS,
+        payload,
+    };
+}

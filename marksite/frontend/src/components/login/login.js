@@ -29,9 +29,7 @@ class Login extends Component {
         if(username !== '' && password !== '') {
             this.props.loginRegister({username, password}, route)
             .then(res => {
-                console.log(res);
                 const { status } = res.payload;
-                console.log("status", status)
                 if(status === 200 || status === 201) {
                     const string = JSON.stringify(res.payload.data.user);
                     window.localStorage.setItem("user", string);
