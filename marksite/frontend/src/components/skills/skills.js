@@ -103,7 +103,7 @@ class Skills extends Component {
     });
   };
 
-  drag(ev) {
+  drag(ev) {  
     ev.dataTransfer.setData("text", ev.target.id);
   }
 

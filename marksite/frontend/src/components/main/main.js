@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import {  getUsers, getUserById, updateUser, getUser } from '../../actions/UserActions';
+import { getMedia } from '../../actions/MediaActions';
+import axios from 'axios';
 import { connect } from 'react-redux';
 import AllChar from './allChar';
-
 import "./main.css";
-import DragDrop from "../dragDrop/index.js"
-import update from 'immutability-helper';
 
 
 class Main extends Component {
@@ -15,54 +14,75 @@ class Main extends Component {
             name: "",
             age: "",
             location: "",
-            picture: "",
+            image: null,
             dragDrop: false,
             id: "",
         }
     }
 
-    submitFile = file => {
-        updateUser({ picture: file }, this.state.id);
-        file = URL.createObjectURL(file);
-        this.setState({ picture: file, dragDrop: false })
-      };
     renderDragDrop = e => {
         e.stopPropagation();
         this.setState({ dragDrop: !this.state.dragDrop });
       };
+      handleImageChange = (e) => {
+        this.setState({
+          image: e.target.files[0]
+        })
+      };
     
+      handleSubmit = (e) => {
+        e.preventDefault();
+        let form_data = new FormData();
+        form_data.append('picture', this.state.image);
+        // let url = `https://ff7backend.herokuapp.com/api/users/${id._id}`;
+        const id = window.localStorage.getItem("user");
+        const token = window.localStorage.getItem("user_photo") || null;
+        const config = { headers: { "Authorization": `Bearer ${token}` } };
+        console.log('IDIDID', id, id.username);
+        // axios.put(url, form_data, {
+        //   headers: {
+        //     'content-type': 'multipart/form-data',
+        //     "Authorization": `Bearer ${token}`
+        //   }
+        // })
+        // this.setState({ dragDrop: !this.state.dragDrop });
+      };
     componentDidMount = () => {
         this.props.getUser();
         this.props.getUsers();
+        this.props.getMedia();
+        this.props.getUserById();
         let user = window.localStorage.getItem("user");
         user = JSON.parse(user);
         this.setState({
             name: user.name,
             age: user.age,
             location: user.location,
-            picture: user.picture,
+            picture: this.props.userPicture,
             id: user._id
         })        
       };
  
 
-  renderDragDrop = e => {
-    e.stopPropagation();
-    this.setState({ dragDrop: !this.state.dragDrop });
-  };
-
     render () {
-        console.log("STATE",this.state)
-        console.log("USER", window.localStorage.getItem("user"));
-        const { users, user } = this.props;
-        console.log("user-info", this.props.user)
+        const { users, user, photo } = this.props;
+        console.log('USERREAL', users);
+        console.log('Photo', photo);
+        console.log('IMAGE STATE', this.state.image)
+        console.log('USE32432R', window.localStorage.getItem("user"))
         let modal = null;
         if (this.state.dragDrop) {
           modal = (
-            <DragDrop
-              renderDragDrop={this.renderDragDrop}
-              submitFile={this.submitFile}
-            />
+            <div className="App">
+            <form onSubmit={this.handleSubmit}>
+                <input type="file"
+                       id="picture"
+                       accept="image/png, image/jpeg, image/gif"  
+                       onChange={this.handleImageChange} 
+                       required/>
+              <input type="submit"/>
+            </form>
+          </div>
           );
         }
       let  hp = () => {
@@ -80,7 +100,7 @@ class Main extends Component {
         <div>
         <img className='char_pic'
          id="pic" 
-         src= {this.state.picture}  
+         src="l"
          alt="Generic placeholder" 
          onClick={e => {
             this.renderDragDrop(e);
@@ -89,20 +109,21 @@ class Main extends Component {
         </div>
         <div className="stats" >
         <h1 className="name">{this.state.name}</h1>
-         <span className="level_lable">LV<span className="level">{this.state.age}</span></span>
+         <span className="level_lable">LV<span className="level">{this.props.user.age}</span></span>
          <span className="level_lable">HP<span className="level_num">{hp()}/{hp()}</span></span>
          <span className="level_lable">MP<span className="level_num">{mp()}/{mp()}</span></span>
         </div>
      </div>
      <div className="idkyet">
           {      users.map((user, i) => {
-                   const { _id, username } = user;
-                   console.log("users", user._id)
+                   const { _id, username, picture } = user;
+                   console.log('PCITUR', user.picture);
                    return (
                        <AllChar
                        key={_id}
                        id={_id}
                        index={i}
+                       picture={picture}
                        username={username}/>
                    )
                })
@@ -115,9 +136,11 @@ class Main extends Component {
 
 const mSTP = state => {
     return {
+        photo: state.MediaReducer,
         users: state.UsersReducer,
-        user: state.UsersReducer
+        user: state.UserReducer,
+        userPicture: state.MediaReducer
     }
 }
 
-export default connect(mSTP, { getUsers, getUserById, updateUser, getUser })(Main);
+export default connect(mSTP, { getMedia, getUsers, getUserById, updateUser, getUser })(Main);

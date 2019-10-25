@@ -5,16 +5,20 @@ import { connect } from 'react-redux';
 
 class AllChar extends Component {
 
-
+    render = (picture) =>{
+      document.getElementById('picture').src = "localhost:8081/api/" + picture;
+      console.log('PIC FUNC', picture)
+    }
   render = () => {
-  	const { id, username, index } = this.props;
+    const { id, username, index, picture } = this.props;
+    const picture2 = `http://localhost:8081/api/${picture}`;
     return (
         <div 
         id={id}
         key={id}
         className='main1'>
         <div>
-        <img className='char_pic' id="pic" src="https://pbs.twimg.com/profile_images/1267009503/ff7-cid2_400x400.jpg"  alt="Generic placeholder" />
+        <img className='char_pic' id="picture" src={picture2} />
         </div>
         <div className="stats" >
         <h1 className="name">{username}</h1>
