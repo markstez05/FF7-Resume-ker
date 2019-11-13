@@ -4,12 +4,13 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise';
 import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 import Reducers from './reducers';
 import './index.css';
 import App from './App';
 
-const createStoreWithMiddleware = applyMiddleware(ReduxPromise, thunk)(createStore);
+const createStoreWithMiddleware = composeWithDevTools(applyMiddleware(ReduxPromise, thunk))(createStore);
 
 render(
 	<Router>

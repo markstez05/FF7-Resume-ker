@@ -34,18 +34,19 @@ class Main extends Component {
         e.preventDefault();
         let form_data = new FormData();
         form_data.append('picture', this.state.image);
-        // let url = `https://ff7backend.herokuapp.com/api/users/${id._id}`;
-        const id = window.localStorage.getItem("user");
+        const userID = window.localStorage.getItem("user");
+        const user2 = JSON.parse(userID);
+        const user_id = user2._id;
         const token = window.localStorage.getItem("user_photo") || null;
-        const config = { headers: { "Authorization": `Bearer ${token}` } };
-        console.log('IDIDID', id, id.username);
-        // axios.put(url, form_data, {
-        //   headers: {
-        //     'content-type': 'multipart/form-data',
-        //     "Authorization": `Bearer ${token}`
-        //   }
-        // })
-        // this.setState({ dragDrop: !this.state.dragDrop });
+        let url = `http://localhost:8081/api/users/${user_id}`;
+        // const config = { headers: { "Authorization": `Bearer ${token}` } };
+        axios.put(url, form_data, {
+          headers: {
+            'content-type': 'multipart/form-data',
+            "Authorization": `Bearer ${token}`
+          }
+        })
+        this.setState({ dragDrop: !this.state.dragDrop });
       };
     componentDidMount = () => {
         this.props.getUser();
@@ -53,11 +54,11 @@ class Main extends Component {
         this.props.getMedia();
         this.props.getUserById();
         let user = window.localStorage.getItem("user");
-        user = JSON.parse(user);
+        const user2 = JSON.parse(user);
         this.setState({
-            name: user.name,
-            age: user.age,
-            location: user.location,
+            name: user2.username,
+            age: user2.age,
+            location: user2.location,
             picture: this.props.userPicture,
             id: user._id
         })        
@@ -67,8 +68,8 @@ class Main extends Component {
     render () {
         const { users, user, photo } = this.props;
         console.log('USERREAL', users);
-        console.log('Photo', photo);
-        console.log('IMAGE STATE', this.state.image)
+        // console.log('Photo', photo);
+        console.log('IMAGE STATE', this.state.name)
         console.log('USE32432R', window.localStorage.getItem("user"))
         let modal = null;
         if (this.state.dragDrop) {
