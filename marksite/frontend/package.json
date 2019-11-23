@@ -26,6 +26,6 @@
     "sass": "node-sass -w scss/ -o src/css --recursive"
   },
   "devDependencies": {
-    "eslint": "^6.6.0"
+    "eslint": "^6.7.0"
   }
 }
