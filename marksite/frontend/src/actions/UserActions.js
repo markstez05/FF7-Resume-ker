@@ -5,13 +5,14 @@ const server = "https://ff7backend.herokuapp.com/api/users"
 
 export const LOGIN_REGISTER = 'LOGIN_REGISTER';
 export const GET_USERS = 'GET_USERS';
+export const GET_USER = 'GET_USER';
 export const GET_USER_ID = 'GET_USER_ID';
+export const UPDATE_USER = 'UPDATE_USER';
 
 export const loginRegister = (user, route) => {
     const token = window.localStorage.getItem("user") || null;
     const config = { headers: { "Authorization": `Bearer ${token}` } };
     const payload = Axios.post(`${server}/${route}`, user, config);
-    console.log('USERACT', user)
     return {
         type: LOGIN_REGISTER,
         payload,
@@ -19,14 +20,21 @@ export const loginRegister = (user, route) => {
 }
 export const updateUser = async (user, id) => {
     await Axios.put(`${server}/${id}`, user);
-    return dispatch => {
-        dispatch(getUserById());
+    const payload = await Axios.get(`${server}/${id}`, user);
+    console.log('USER ACTION', user)
+    return {
+        type: UPDATE_USER,
+        payload
     }
 }
-export const getUserById = async (user, id) => {
-    await Axios.get(`${server}/${id}`, user);
-    return dispatch => {
-        dispatch(getUserById());
+
+export const getUserById = async (id) => {
+    await Axios.get(`${server}/${id}`);
+    const payload = await Axios.get(`${server}/${id}`);
+    console.log('USER ACTION')
+    return {
+        type: GET_USER_ID,
+        payload
     }
 }
 export const getUsers = () => {
@@ -37,11 +45,10 @@ export const getUsers = () => {
     };
 }
 export const getUser = () => {
-    const token = window.localStorage.getItem("user_info") || null;
-    const config = { headers: { "Authorization": `Bearer ${token}` } };
-    const payload = Axios.get(`${server}`, config);
+    const token = window.localStorage.getItem("user") || null;
+    const payload = token;
     return {
-        type: GET_USERS,
+        type: GET_USER,
         payload,
     };
 }

@@ -2,9 +2,9 @@
 .slots{
     display: flex;
     flex-direction: column;
-    margin-left: 130px;
-    margin-top: -10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    margin-right: -15px;
     justify-content: flex-end;
 }
 .skill-bar{
@@ -36,7 +36,6 @@
     width: 37px;
     height: 37px;
     margin-top: 1px;
-    margin-bottom: px;
     background: rgba(87, 87, 87, 0.418);
 }
 .equal{
@@ -45,7 +44,7 @@
     color: rgb(221, 221, 221);
 }
 .circle2{
-    border: 2px solid rgb(168, 75, 75);
+    padding-top: 10px;
     border-radius: 100%;
     width: 37px;
     height: 37px;
@@ -53,12 +52,12 @@
     margin-top: 0px;
     margin-bottom: 0px;
     background:radial-gradient(at 34% 10px,  rgb(208, 255, 210) , rgb(156, 12, 12),  rgb(255, 255, 255));
-    /* box-shadow: 0px 0px 10px 0px #6af06a; */
+    box-shadow: 0px 0px 5px 0px #4fb44f;
     color: white;
 }
 
 .skill_buttons{
-    padding-left: 0px;
+   justify-self: center;
     margin: 5px;
     width: 275px;
     display: flex;
@@ -98,8 +97,6 @@
       width: 300px;
       padding: 2px;
       margin-bottom: 5px;
-      /* margin-top: 80px;
-      margin-left: 320px; */
   }
   .exp_title2{
     position: sticky;
@@ -143,18 +140,26 @@
     overflow: auto;
     padding: 0px;
   }
-  star{
+  .star{
       color: rgb(8, 197, 8);
   }
   .work_form1{
-    margin-right: 12px;
-    margin-bottom: 0px;
-    margin-top: 15px;
+    /* margin-bottom: 2px;
+    margin-top: 2px; */
     border-left: 0px solid rgb(216, 216, 216);
     padding: 0px;
     height: 500px;
     width: 300px;
     overflow: auto;
+  }
+  .exp_menu{
+      /* border: 3px solid red; */
+      margin-left: -15px;
+  }
+  .skill_main{
+      border: 2px solid green;
+      width: 5000px;
+      z-index:0;
   }
   .select{
       background-color: rgb(31, 31, 31);
@@ -175,7 +180,7 @@
       color: white;
       border-radius: 6px;
       height: 30px;
-      font-size:.86rem;
+      font-size:.8rem;
       width: 100px;
   }
   .sort-button:hover{

@@ -7,24 +7,33 @@ class AllChar extends Component {
 
     render = (picture) =>{
       document.getElementById('picture').src = "localhost:8081/api/" + picture;
-      console.log('PIC FUNC', picture)
+    }
+    hpGenerate = age => {
+      let num = age * 50;
+      return num;
+    }
+    mpGenerate = age => {
+      let num = age * 10;
+      return num;
     }
   render = () => {
-    const { id, username, index, picture } = this.props;
-    const picture2 = `http://localhost:8081/api/${picture}`;
+    const { id, username, userClass, name, picture, age } = this.props;
+    const userPicture = `http://localhost:8081/api/${picture}`;
+    const defaultPhoto = "http://localhost:8081/api/media/images/default.jpg";
     return (
         <div 
         id={id}
         key={id}
         className='main1'>
         <div>
-        <img className='char_pic' id="picture" src={picture2} />
+        <img className='char_pic' id="picture" src={ picture ? userPicture : defaultPhoto } />
         </div>
         <div className="stats" >
-        <h1 className="name">{username}</h1>
-         <span className="level_lable">LV<span className="level">11</span></span>
-         <span className="level_lable">HP<span className="level_num">550/550</span></span>
-         <span className="level_lable">MP<span className="level_num">110/110</span></span>
+        <h1 className="allName">{ name ? name : username }</h1>
+         <span className="level_label">LV<span className="level">{ age ? age  : 0 }</span>
+         <span className="className">{ userClass ? userClass  : null }</span></span>
+         <span className="level_label">HP<span className="level_num">{age ? `${this.hpGenerate(age)}/${this.hpGenerate(age)}` : '0/0'}</span></span>
+         <span className="level_label">MP<span className="level_num">{age ? `${this.mpGenerate(age)}/${this.mpGenerate(age)}`  : '0/0'}</span></span>
         </div>
      </div>
     );

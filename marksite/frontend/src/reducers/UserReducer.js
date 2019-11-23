@@ -13,19 +13,18 @@ export default async (UserState = {}, action) => {
         }
         if(action.payload.data) {
             const { token } = action.payload.data;
-            console.log('USERSTATE', action.payload.data)
             if(token) {
                 localStorage.setItem("user_work", token);
                 localStorage.setItem("user_skill", token);
-                localStorage.setItem("user_info", token)
-                localStorage.setItem("user_photo", token)
                 ns = update(UserState, {errorMessage: {$set: 'Successfully logged In'}});
                 return action.payload.data;
             } else {
-                ns = update(UserState);
+                ns = update(UserState, {errorMessage: {$set: 'Successfully logged In'}});
+
             }
         } else {
-            ns = update(UserState);
+            ns = update(UserState, {errorMessage: {$set: 'Successfully logged In'}});
+
         }
         return ns;
         default:

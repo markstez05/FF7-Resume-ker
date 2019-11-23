@@ -1,26 +1,20 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
 class Location extends Component {
-    constructor(props){
-        super();
-        this.state = {
-            location: "",
-        }
-    }
-    componentDidMount = () => {
-        let user = window.localStorage.getItem("user");
-        user = JSON.parse(user);
-        this.setState({
-            location: user.location,
-        })
-      };
 
     render() {
+        const { loggedUser } = this.props;
         return(
             <div className="location">
-            <p> {this.state.location}</p>
+            <p>{loggedUser.location}</p>
             </div>
         );
     }
 }
-export default Location;
+
+const mSTP = state => {
+    return {
+        loggedUser: state.LoggedUser
+    }
+}
+export default connect(mSTP)(Location);

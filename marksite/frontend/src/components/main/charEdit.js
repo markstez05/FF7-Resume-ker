@@ -14,44 +14,27 @@ class CharEdit extends Component {
             id: ""
         }
     }
-    componentDidMount = () => {
-        let user = window.localStorage.getItem("user");
-        user = JSON.parse(user);
-        this.setState({
-            name: user.name,
-            age: user.age,
-            location: user.location,
-            userClass: user.userClass,
-            id: user._id
-        })        
-        console.log("Window User",user)
-      };
-      submit = e => {
+
+      submit = (e, props) => {
         e.preventDefault();
-        let user = window.localStorage.getItem("user");
         const { name, location, age, userClass } = this.state;
         this.props.updateUser({
-              name: name === '' ? user.name : name,
-              location: location === '' ? user.location : location,
-              age: age === '' ? user.age : age,
-              userClass: userClass === '' ? user.userClass : userClass,
-          
-            }, this.state.id);
-            
-            console.log("ID", user._id)
-        this.props.history.push('/main');
-        window.localStorage.setItem("user", user);
+              name: name === '' ? this.props.name : name,
+              location: location === '' ? this.props.location : location,
+              age: age === '' ? this.props.age : age,
+              userClass: userClass === '' ? this.props.userClass : userClass,
+            }, this.props._id);
+            this.props.closeModal();
       }
 
     render = () => {
-       const {name, age, location, userClass, id} = this.state;
-       console.log(this.state)
+       const {name, age, location, userClass } = this.state;
       return (
           <div className="info-modal">
            <form onSubmit={this.submit}>
 	      	<div className='input-modal'>
 	      		<input
-		      		type="userClass"
+		      		type="text"
 		      		placeholder="Name"
 		      		value={name}
 		      		onChange={e => this.setState({ name: e.target.value})} />
@@ -76,7 +59,7 @@ class CharEdit extends Component {
 		      		placeholder="Job Title"
 		      		value={userClass}
 		      		onChange={e => this.setState({ userClass: e.target.value})} />
-                      <button className="equip_button">Modify</button>
+                <button className="equip_button">Modify</button>
 	      		</div>
 	      		</form>
        </div>
@@ -84,4 +67,5 @@ class CharEdit extends Component {
     }
   }
   
+
   export default connect(null, { updateUser })(CharEdit);

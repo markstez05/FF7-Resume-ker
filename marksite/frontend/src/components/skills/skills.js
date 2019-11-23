@@ -119,11 +119,10 @@ class Skills extends Component {
 
   componentDidMount = () => {
     this.props.getSkill();
-    this.setState({ equip: this.props.skills.type });
+    this.setState({ equip: this.props.skill });
   };
 
   render() {
-    console.log(this.props.skills)
     const { skills } = this.props;
     const { title, desc, level, type } = this.state;
     return (
@@ -252,13 +251,13 @@ class Skills extends Component {
         <div className="work_history">
           <div className="work_title">
             <h1 className="work_header">
-              Equips "<span className="level_lable">{title}</span>" Skill
+              Equips "<span className="level_label">{title}</span>" Skill
             </h1>
           </div>
           <div className="work_box2">
             <div className="work_info2">
               <div>
-                <h4 className="level_lable">Level</h4>
+                <h4 className="level_label">Level</h4>
                 <h1 className="star">
                   <FaStar
                     style={{ color: level > 0 ? "rgb(35, 190, 35)" : "black" }}
@@ -283,11 +282,11 @@ class Skills extends Component {
                 </h1>
               </div>
               <div className="skill-type">
-                <h4 className="level_lable">Skill Type</h4>
+                <h4 className="level_label">Skill Type</h4>
                 <h2>{type}</h2>
               </div>
               <div className="desc">
-                <h4 className="level_lable">Description</h4>
+                <h4 className="level_label">Description</h4>
                 <h2>{desc}</h2>
               </div>
             </div>
@@ -301,7 +300,6 @@ class Skills extends Component {
               <div className="work_form1">
                 {skills.map((skill, i) => {
                   const { _id, title, desc, level, type } = skill;
-                  console.log("skill", skill._id)
                   return (
                     <SkillButton
                       key={_id}

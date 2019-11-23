@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
-import {  getUsers, getUserById, updateUser, getUser } from '../../actions/UserActions';
-import { getMedia } from '../../actions/MediaActions';
+import {  getUsers, getUserById, getUser, updateUser } from '../../actions/UserActions';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import AllChar from './allChar';
+import CharEdit from './charEdit';
 import "./main.css";
-
-
 class Main extends Component {
     constructor(props){
         super();
@@ -14,7 +12,9 @@ class Main extends Component {
             name: "",
             age: "",
             location: "",
+            className: "",
             image: null,
+            editModal: false,
             dragDrop: false,
             id: "",
         }
@@ -24,57 +24,68 @@ class Main extends Component {
         e.stopPropagation();
         this.setState({ dragDrop: !this.state.dragDrop });
       };
+
       handleImageChange = (e) => {
         this.setState({
           image: e.target.files[0]
         })
       };
     
+      hpGenerate = age => {
+        let num = age * 50;
+        return num;
+      }
+      mpGenerate = age => {
+        let num = age * 10;
+        return num;
+      }
+
       handleSubmit = (e) => {
         e.preventDefault();
         let form_data = new FormData();
         form_data.append('picture', this.state.image);
         const userID = window.localStorage.getItem("user");
-        const user2 = JSON.parse(userID);
-        const user_id = user2._id;
-        const token = window.localStorage.getItem("user_photo") || null;
-        let url = `http://localhost:8081/api/users/${user_id}`;
-        // const config = { headers: { "Authorization": `Bearer ${token}` } };
-        axios.put(url, form_data, {
-          headers: {
-            'content-type': 'multipart/form-data',
-            "Authorization": `Bearer ${token}`
-          }
-        })
+        const user = JSON.parse(userID);
+        const user_id = user._id;
+        let url = `https://ff7backend.herokuapp.com/api/users/${user_id}`;
+        console.log(form_data)
+        axios.put(url, form_data)
         this.setState({ dragDrop: !this.state.dragDrop });
+        this.props.getUserById(user._id)
       };
-    componentDidMount = () => {
-        this.props.getUser();
-        this.props.getUsers();
-        this.props.getMedia();
-        this.props.getUserById();
-        let user = window.localStorage.getItem("user");
-        const user2 = JSON.parse(user);
-        this.setState({
-            name: user2.username,
-            age: user2.age,
-            location: user2.location,
-            picture: this.props.userPicture,
-            id: user._id
-        })        
-      };
- 
 
+      handleEditModal = () => {
+        this.setState({
+          editModal: !this.state.editModal
+        });
+      };
+
+    componentDidMount = () => {
+        this.props.getUsers();
+        this.props.getUser();
+      };
+
+      componentDidUpdate(prevProps) {
+        const { loggedUser } = this.props;
+        if (loggedUser !== prevProps.loggedUser) {
+          this.setState({
+            name: loggedUser.name,
+            age: loggedUser.age,
+            className: loggedUser.userClass,
+            location: loggedUser.location,
+            image: loggedUser.picture,
+            id: loggedUser._id
+        })  
+        }
+      } 
+  
     render () {
-        const { users, user, photo } = this.props;
-        console.log('USERREAL', users);
-        // console.log('Photo', photo);
-        console.log('IMAGE STATE', this.state.name)
-        console.log('USE32432R', window.localStorage.getItem("user"))
+        const { users, loggedUser } = this.props;
+        const { name, age, className, editModal } = this.state;
         let modal = null;
         if (this.state.dragDrop) {
           modal = (
-            <div className="App">
+            <div className="modal">
             <form onSubmit={this.handleSubmit}>
                 <input type="file"
                        id="picture"
@@ -86,44 +97,47 @@ class Main extends Component {
           </div>
           );
         }
-      let  hp = () => {
-            let num = this.state.age * 50;
-            return num;
-          }
-          let  mp = () => {
-            let num = this.state.age * 10;
-            return num;
-          }
         return (
-            <div className="main-container">
+        <div className="main-container">
      <div className='main'>
      {modal}
         <div>
         <img className='char_pic'
          id="pic" 
-         src="l"
+         src={loggedUser.picture ? `http://localhost:8081/api/${loggedUser.picture}` : "http://localhost:8081/api/media/images/default.jpg" }
          alt="Generic placeholder" 
-         onClick={e => {
-            this.renderDragDrop(e);
-          }}
+         onClick={e => { this.renderDragDrop(e) }}
          />
         </div>
+        { editModal && 
+        <CharEdit 
+        age={loggedUser.age}
+        _id={loggedUser._id}
+        location={loggedUser.location}
+        closeModal={ this.handleEditModal }
+        name={loggedUser.name}
+        user={loggedUser}
+        userClass={loggedUser.userClass}
+        /> }
         <div className="stats" >
-        <h1 className="name">{this.state.name}</h1>
-         <span className="level_lable">LV<span className="level">{this.props.user.age}</span></span>
-         <span className="level_lable">HP<span className="level_num">{hp()}/{hp()}</span></span>
-         <span className="level_lable">MP<span className="level_num">{mp()}/{mp()}</span></span>
+        <h1 className="name" onClick={this.handleEditModal}>{name ? name : "NEW PLAYER" }</h1>
+         <span className="level_label">LV<span className="level">{age}</span>
+         <span className="className">{className}</span></span>
+         <span className="level_label">HP<span className="level_num">{this.hpGenerate(age)}/{this.hpGenerate(age)}</span></span>
+         <span className="level_label">MP<span className="level_num">{this.mpGenerate(age)}/{this.mpGenerate(age)}</span></span>
         </div>
      </div>
      <div className="idkyet">
           {      users.map((user, i) => {
-                   const { _id, username, picture } = user;
-                   console.log('PCITUR', user.picture);
+                   const { _id, username, picture, age, name, userClass } = user;
                    return (
                        <AllChar
                        key={_id}
                        id={_id}
                        index={i}
+                       age={age}
+                       name={name}
+                       userClass={userClass}
                        picture={picture}
                        username={username}/>
                    )
@@ -137,11 +151,9 @@ class Main extends Component {
 
 const mSTP = state => {
     return {
-        photo: state.MediaReducer,
         users: state.UsersReducer,
-        user: state.UserReducer,
-        userPicture: state.MediaReducer
+        loggedUser: state.LoggedUser
     }
 }
 
-export default connect(mSTP, { getMedia, getUsers, getUserById, updateUser, getUser })(Main);
+export default connect(mSTP, { updateUser, getUserById, getUsers, getUser })(Main);

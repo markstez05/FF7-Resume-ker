@@ -43,9 +43,9 @@ class EditWork extends Component {
 	 </div>
 	 <div className="stats" >
 	 <h1 className="name">Mark Stesney</h1>
-		<span className="level_lable">LV<span className="level">11</span></span>
-		<span className="level_lable">HP<span className="level_num">550/550</span></span>
-		<span className="level_lable">MP<span className="level_num">110/110</span></span>
+		<span className="level_label">LV<span className="level">11</span></span>
+		<span className="level_label">HP<span className="level_num">550/550</span></span>
+		<span className="level_label">MP<span className="level_num">110/110</span></span>
 	 </div>
 	 </div>
 	 <div className="exp_bar">
@@ -85,15 +85,15 @@ class EditWork extends Component {
 </div>
 			<div className="work_history">
 			 <div className="work_title">
-		 <h1 className="work_header"><span className="level_lable">JOB TITLE:</span> {work.title}</h1>
+		 <h1 className="work_header"><span className="level_label">JOB TITLE:</span> {work.title}</h1>
 		 </div>
 		 <div className="work_box">
 		 <div className="work_info">
-		 <h4 className="level_lable">COMPANY</h4>
+		 <h4 className="level_label">COMPANY</h4>
 		 <h2>{work.location}</h2>
-		 <h4 className="level_lable">YEARS WORKED</h4>
+		 <h4 className="level_label">YEARS WORKED</h4>
 		 <h2>{work.date}</h2>
-		 <h4 className="level_lable">Job Description</h4>
+		 <h4 className="level_label">Job Description</h4>
 		 <p className="work_description">
 		 {work.text}
 		 </p>
