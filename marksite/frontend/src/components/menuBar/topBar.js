@@ -3,18 +3,18 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import Axios from 'axios';
 
-
 class TopBar extends Component {
     shouldComponentUpdate = (nextProps, nextState) => false;
 
-    
-  logout = () => {
-    Axios.get('https://ff7backend.herokuapp.com/api/users/logout')
-    .then(res => {
-      window.localStorage.removeItem("user_work", "user_skill");
-      this.props.history.push('/');
-    })
-  }
+    logout = () => {
+        // const server = 'https://ff7backend.herokuapp.com/api/users/logout';
+        const server = 'http://localhost:8081/api/users';
+        Axios.get(server)
+        .then(res => {
+          window.localStorage.clear();
+          this.props.history.push('/');
+        })
+      }
 
 
     render () {

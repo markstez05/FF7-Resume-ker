@@ -56,7 +56,7 @@ class Login extends Component {
                 errorMessage !== '' &&
                 <h2>{errorMessage}</h2>
             }
-            <div className={input1Classes}>
+            <div className={input1Classes}> 
             <label htmlFor="username">Username:</label>
             <input
             type='text'

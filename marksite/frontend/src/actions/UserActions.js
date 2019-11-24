@@ -1,7 +1,7 @@
 import Axios from 'axios';
 
-const server = "https://ff7backend.herokuapp.com/api/users"
-// const server = 'http://localhost:8081/api/users'
+// const server = "https://ff7backend.herokuapp.com/api/users"
+const server = 'http://localhost:8081/api/users'
 
 export const LOGIN_REGISTER = 'LOGIN_REGISTER';
 export const GET_USERS = 'GET_USERS';

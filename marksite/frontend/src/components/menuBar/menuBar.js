@@ -4,15 +4,18 @@ import Axios from 'axios';
 import "./menubar.css";
 
 class MenuBar extends Component {
-    shouldComponentUpdate = (nextProps, nextState) => false;
+  shouldComponentUpdate = (nextProps, nextState) => false; 
 
-    logout = () => {
-        Axios.get('https://ff7backend.herokuapp.com/api/users/logout')
-        .then(res => {
-          window.localStorage.removeItem("user_work", "user_skill", "user");
-          this.props.history.push('/');
-        })
-      }
+  logout = () => {
+        // const server = 'https://ff7backend.herokuapp.com/api/users/logout';
+        const server = 'http://localhost:8081/api/users';
+        Axios.get(server)
+      .then(res => {
+        window.localStorage.clear();
+        console.log()
+        this.props.history.push('/');
+      })
+    }
 
     render () {
         return (
