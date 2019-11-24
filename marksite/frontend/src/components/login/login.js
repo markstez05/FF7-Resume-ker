@@ -12,7 +12,7 @@ class Login extends Component {
             input1Classes: 'input',
             input2Classes: 'input',
             buttonClasses: 'submit',
-            errorMessage: '',
+            errorMessage: '' ,
             authenticated: false,
         }
         this.storage = window.localStorage;
