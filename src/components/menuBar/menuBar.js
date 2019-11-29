@@ -7,8 +7,8 @@ class MenuBar extends Component {
   shouldComponentUpdate = (nextProps, nextState) => false; 
 
   logout = () => {
-        // const server = 'https://ff7backend.herokuapp.com/api/users/logout';
-        const server = 'http://localhost:8081/api/users';
+        const server = 'https://ff7backend.herokuapp.com/api/users';
+        // const server = 'http://localhost:8081/api/users';
         Axios.get(server)
       .then(res => {
         window.localStorage.clear();

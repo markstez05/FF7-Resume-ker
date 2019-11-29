@@ -62,7 +62,7 @@ class Work extends Component {
                   <div className='input'>
 	      		<input
 		      		type="text"
-		      		placeholder="Work Location"
+		      		placeholder="Company Name"
 		      		value={location}
 		      		onChange={e => this.setState({ location: e.target.value})} />
 	      		</div>
