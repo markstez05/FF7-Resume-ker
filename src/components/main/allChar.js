@@ -18,8 +18,8 @@ class AllChar extends Component {
     }
   render = () => {
     const { id, username, userClass, name, picture, age } = this.props;
-    const userPicture = `http://localhost:8081/api/${picture}`;
-    const defaultPhoto = "http://localhost:8081/api/media/images/default.jpg";
+    const userPicture = `https://ff7backend.herokuapp.com/api/${picture}`;
+    const defaultPhoto = "https://ff7backend.herokuapp.com/api/media/images/default.jpg";
     return (
         <div 
         id={id}

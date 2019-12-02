@@ -104,7 +104,7 @@ class Main extends Component {
         <div>
         <img className='char_pic'
          id="pic" 
-         src={loggedUser.picture ? `http://localhost:8081/api/${loggedUser.picture}` : "http://localhost:8081/api/media/images/default.jpg" }
+         src={loggedUser.picture ? `https://ff7backend.herokuapp.com/api/${loggedUser.picture}` : "https://ff7backend.herokuapp.com/api/media/images/default.jpg" }
          alt="Generic placeholder" 
          onClick={e => { this.renderDragDrop(e) }}
          />

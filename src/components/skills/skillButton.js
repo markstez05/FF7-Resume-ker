@@ -7,7 +7,7 @@ class SkillButton extends Component {
 
 
   render = () => {
-    const {  id, type, title, deleteSkill, onDragOver, onSkillClick, drop, drag } = this.props;
+    const {  id, type, title, deleteSkill, onSkillClick, drop, drag } = this.props;
     return (
       <div className="skill_buttons">
       <button
