@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import { addWork } from '../../actions/WorkActions';
+import { addWork, getWork } from '../../actions/WorkActions';
 import { connect } from 'react-redux';
-import { getWork } from '../../actions/WorkActions';
 import WorkButton from '../experience/workButton';
 import Main  from "../main/main"
 import "./exp.css";

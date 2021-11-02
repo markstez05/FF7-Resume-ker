@@ -123,13 +123,14 @@
   }
   
   .char_pic{
-    border: 1px solid rgb(216, 216, 216);
-    width: fit-content;
-    height: fit-content;
+    border: 2px solid rgb(216, 216, 216);
+    width: auto;
+    height: auto;
+    object-fit: contain;
     max-width: 150px;
     max-height: 150px;
     margin-right: 10px;
-    border-radius: 1px;
+    border-radius: 3px;
   }
   .info-modal{
     flex-direction: column;
